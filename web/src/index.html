@@ -168,6 +168,40 @@ forge script script/Deploy.s.sol --rpc-url $RPC_URL --broadcast --verify</code><
       </p>
     </div>
   </section>
+
+  <section class="shell">
+    <h2 id="try">Try it</h2>
+    <p>
+      This is the hook running, not a picture of it. Connect a wallet on a chain it is deployed to, or bring the whole
+      stack up locally in one command and use it with no funds and no wallet risk at all.
+    </p>
+    <div class="demo" data-demo="priority-fee-tax">
+      <div class="panel panel--empty">
+        <p>Loading the demo… if this does not change, JavaScript is blocked and the demo cannot run.</p>
+      </div>
+    </div>
+    <details class="raw">
+      <summary>Run the whole thing locally</summary>
+      <pre><code>git clone --recurse-submodules https://github.com/nirholas/priority-fee-tax
+cd priority-fee-tax
+
+anvil &amp;
+forge script script/DeployLocal.s.sol --rpc-url http://127.0.0.1:8545 --broadcast \
+  --private-key 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
+
+node web/build.mjs &amp;&amp; npx serve web/dist</code></pre>
+      <p class="muted">
+        The deploy script writes <code>web/local.json</code> itself and the build merges it, so the page points at the
+        chain you just created without you editing anything. Point a wallet at
+        <code>http://127.0.0.1:8545</code> and every button on this page works.
+      </p>
+      <p class="muted">
+        Anvil's first account is pre-funded and its key is public by design. Never use it anywhere real.
+      </p>
+    </details>
+  </section>
+  <script type="application/json" id="deployments">{"chains":{},"demo":{"panel":"fee","title":"What you bid for position is what you pay","lede":"Racing flow bids for its place in the block. This pool reads that bid and charges for it.","liveLabel":"the fee for a swap at the current priority fee","liveFee":{"name":"quoteFee"},"curve":{"name":"feeAtPriority","from":0,"to":20000000000,"steps":24,"scale":1000000000,"xLabel":"priority fee bid, gwei per gas"},"localDeploy":{"flags":"Hooks.AFTER_INITIALIZE_FLAG | Hooks.BEFORE_SWAP_FLAG","config":"PriorityFeeTaxHook.Config({baseFee: 500, maxSurcharge: 9_500, halfPriorityWei: 1 gwei})","dynamicFee":true}}}</script>
+  <script type="module" src="/assets/demo.js"></script>
 </main>
 
 <footer class="foot">
