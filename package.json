@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Charges a swap in proportion to what it paid the block producer to get where it is in the block.",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/nirholas/priority-fee-tax.git"
