@@ -1,0 +1,29 @@
+{
+  "name": "priority-fee-tax",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Charges a swap in proportion to what it paid the block producer to get where it is in the block.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nirholas/priority-fee-tax.git"
+  },
+  "homepage": "https://priority-fee-tax.pages.dev",
+  "keywords": [
+    "uniswap",
+    "uniswap-v4",
+    "uniswap-hooks",
+    "defi",
+    "amm",
+    "solidity",
+    "mev",
+    "dynamic-fee",
+    "order-flow",
+    "oracle-free"
+  ],
+  "scripts": {
+    "build": "node web/build.mjs",
+    "contracts:build": "forge build",
+    "contracts:test": "forge test"
+  }
+}
